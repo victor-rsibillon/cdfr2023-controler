@@ -1,0 +1,11 @@
+﻿device;direction;port;port_id;mode;desc
+ltp3_integrated;in;D7;7;gpio_digital_in;team side selector
+ltp3_integrated;out;A8/D8;8;gpio_digital_out;team side viewer
+ltp3_integrated;out;A9/D9;9;gpio_digital_out;team side viewer 2
+ltp3_integrated;out;A10/D10;10;gpio_digital_out;activity light
+ltp3_integrated;in;D11;11;gpio_digital_in;start match
+ltp3_integrated;in;A11/D12;12;gpio_digital_in;pause match
+ltp3_integrated;out;D13~;13;gpio_digital_out;execution led
+ltp3_integrated;in;A3/D21;21;gpio_digital_in;reset match
+ltp3_integrated;in;A4/D22;22;gpio_digital_in;set position
+ltp3_integrated;in;A5/D23;23;gpio_analog_in;battery_voltage

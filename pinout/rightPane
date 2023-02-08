@@ -1,0 +1,24 @@
+> UI View / general
+Time: 00:00:00 - 00/00/0000 (UTC+1)
+CurrentIP: 192.168.0.0
+Cursor:
+
+> Strategy
+CurrentStep: Idle
+Side: Green
+NextStep: None
+GameTime: 00:00:00
+MaxGameTime: 01:40:00
+
+> Entities
+RobotFriend1: (0,0)
+RobotFriend2: (0,0)
+RobotEnemy1: (0,0)
+RobotEnemy2: (0,0)
+LayersBrown: [(0,0), (0,0)]
+LayersBrown: [(0,0), (0,0)]
+LayersBrown: [(0,0), (0,0)]
+FullCakes: [(0,0), (0,0)]
+
+> I/O ports
+[L]

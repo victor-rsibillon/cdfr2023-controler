@@ -1,0 +1,41 @@
+{
+  "portTable": "cfg/port_assign.csv",
+  "gameConfig": {
+    "sides": ["green", "blue"],
+    "startGameTime": 0,
+    "maxGameTime": 100000,
+    "tableW": 3000,
+    "tableH": 2000
+  },
+  "lidar": {
+    "portName": "/dev/ttyUSB0",
+    "Dmax": 4000,
+    "Imin": 0,
+    "Imax": 50
+  },
+  "motorsIterface": {
+    "controllerLabel": "ltp3_integrated",
+    "sda_bus": 2,
+    "scl_bus": 3
+  },
+  "interfaces": [
+    {
+      "name": "Integrated I/O",
+      "desc": "Arduino Leonardo part of LattePanda 3 Delta (Atmega 32U4)",
+      "device": {
+        "type": "autoDetectCOM",
+        "id": 1
+      },
+      "portLabel": "ltp3_integrated"
+    },
+    {
+      "name": "Mega extension",
+      "desc": "Arduino Mega 2560 external on robot",
+      "device": {
+        "type": "autoDetectCOM",
+        "id": 2
+      },
+      "portLabel": "ltp3_extend"
+    }
+  ]
+}
