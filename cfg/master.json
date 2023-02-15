@@ -8,19 +8,23 @@
     "tableH": 2000
   },
   "lidar": {
-    "portName": "/dev/ttyUSB0",
-    "Dmax": 4000,
-    "Imin": 0,
-    "Imax": 50
+    "port": "/dev/ttyUSB0",
+    "baud_rate": 256000
   },
-  "motorsIterface": {
+  "motorsInterface": {
     "controllerLabel": "ltp3_integrated",
+    "i2c_addresse": "120",
     "sda_bus": 2,
     "scl_bus": 3
+  },
+  "machineVision": {
+    "host": "192.168.0.0",
+    "port": 42069
   },
   "interfaces": [
     {
       "name": "Integrated I/O",
+      "key": "ltp3",
       "desc": "Arduino Leonardo part of LattePanda 3 Delta (Atmega 32U4)",
       "device": {
         "type": "autoDetectCOM",
@@ -30,12 +34,13 @@
     },
     {
       "name": "Mega extension",
+      "key": "mega",
       "desc": "Arduino Mega 2560 external on robot",
       "device": {
         "type": "autoDetectCOM",
         "id": 2
       },
-      "portLabel": "ltp3_extend"
+      "portLabel": "mega_extension"
     }
   ]
 }
