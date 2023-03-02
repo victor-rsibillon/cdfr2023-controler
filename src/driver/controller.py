@@ -68,11 +68,11 @@ class Controller:
     def register_telemetrix_connection(self):
         match self.device["type"]:
             case "autoDetectCOM":
-                self.board = telemetrix.Telemetrix(arduino_instance_id=self.device['id'])
+                self.board = telemetrix.Telemetrix(arduino_instance_id=self.device['id'], arduino_wait=self.device['resetTiming'])
             case "manualCOM":
-                self.board = telemetrix.Telemetrix(com_port=self.device['com_port'])
+                self.board = telemetrix.Telemetrix(com_port=self.device['com_port'], arduino_wait=self.device['resetTiming'])
             case "ethernet":
-                self.board = telemetrix.Telemetrix(ip_address=self.device['ip'], ip_port=self.device['port'])
+                self.board = telemetrix.Telemetrix(ip_address=self.device['ip'], ip_port=self.device['port'], arduino_wait=self.device['resetTiming'])
 
 
     def get_board(self):

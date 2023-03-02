@@ -4,15 +4,20 @@ from driver.controller import *
 
 class PortsController:
     def __init__(self):
+        self.ctrl_obj = None
         self.ctrls = {}
 
-    def add_controllers(self, ctrl_obj: dict):
-        print(f"Ctrl> Attempt to load {len(ctrl_obj['interfaces'])} controllers")
-        for interface in ctrl_obj['interfaces']:
-            self.register_controller(interface)
+    def set_controlers_config(self, ctrl_obj: dict):
+        self.ctrl_obj = ctrl_obj
+
+    def initialize_controlers(self):
+        print(f"Ctrl> Attempt to load {len(self.ctrl_obj['interfaces'])} controllers")
+        for interface in self.ctrl_obj['interfaces']:
+            if interface['enabled']:
+                self.register_controller(interface)
 
         print(f"Ctrl> Linking I/O ports table with current controller")
-        self.registers_port(ctrl_obj["portTable"])
+        self.registers_port(self.ctrl_obj["portTable"])
 
         return len(self.ctrls)
 

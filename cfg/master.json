@@ -26,9 +26,11 @@
       "name": "Integrated I/O",
       "key": "ltp3",
       "desc": "Arduino Leonardo part of LattePanda 3 Delta (Atmega 32U4)",
+      "enabled": true,
       "device": {
         "type": "autoDetectCOM",
-        "id": 1
+        "id": 1,
+        "resetTiming": 2
       },
       "portLabel": "ltp3_integrated"
     },
@@ -36,9 +38,11 @@
       "name": "Mega extension",
       "key": "mega",
       "desc": "Arduino Mega 2560 external on robot",
+      "enabled": true,
       "device": {
         "type": "autoDetectCOM",
-        "id": 2
+        "id": 2,
+        "resetTiming": 2
       },
       "portLabel": "mega_extension"
     }
