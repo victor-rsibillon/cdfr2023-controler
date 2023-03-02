@@ -39,6 +39,7 @@ def load_config(ctrl_path: str):
 
 def strategy_process(context: dict):
     logging.info("Proc> Starting strategy child process environment")
+    port_ctrl.initialize_controlers()
     current_strategy.setup_std_pins(context)
     current_strategy.start()
 
@@ -91,7 +92,7 @@ if __name__ == "__main__":
     default_config(robot_state)
 
     logging.info("Importing I/O controller from config file (1/3)")
-    port_ctrl.add_controllers(config)
+    port_ctrl.set_controlers_config(config)
 
     logging.info("Configuring tcp socket for machine vision from config file (2/3)")
     m_vision_ctrl = machine_vision.VisionListener(config['machineVision']['host'], config['machineVision']['port'])
