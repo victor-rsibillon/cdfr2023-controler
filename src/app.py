@@ -70,7 +70,7 @@ def stop_handler(signum, frame):
 
 features = {
     'lidar': {
-        'enabled': True,
+        'enabled': False,
         'handler': lidar_process
     },
     'machine_vision': {

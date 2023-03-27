@@ -26,7 +26,7 @@
       "name": "Integrated I/O",
       "key": "ltp3",
       "desc": "Arduino Leonardo part of LattePanda 3 Delta (Atmega 32U4)",
-      "enabled": true,
+      "enabled": false,
       "device": {
         "type": "autoDetectCOM",
         "id": 1,
