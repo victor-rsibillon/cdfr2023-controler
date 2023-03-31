@@ -72,7 +72,7 @@ def extend_shelf(shelf_id=1, await_end=False):
     elif shelf_id == 3:
         board.servo_write(SERVO_PIN_SHELF_3, 5)
     if await_end:
-        time.sleep(0.8)
+        time.sleep(2)
 
 
 def retract_shelf(shelf_id=1, await_end=False):
@@ -83,7 +83,7 @@ def retract_shelf(shelf_id=1, await_end=False):
     elif shelf_id == 3:
         board.servo_write(SERVO_PIN_SHELF_3, 170)
     if await_end:
-        time.sleep(0.8)
+        time.sleep(2)
 
 
 def stepper_goto(destination, await_end=False):
@@ -113,28 +113,28 @@ try:
     board.stepper_set_acceleration(motor, 2500)
 
     # Servo setup
-    board.set_pin_mode_servo(SERVO_PIN_LEFT)
-    board.set_pin_mode_servo(SERVO_PIN_RIGHT)
     board.set_pin_mode_servo(SERVO_PIN_SHELF_3)
-    # board.set_pin_mode_servo(SERVO_PIN_SHELF_2)
-    # board.set_pin_mode_servo(SERVO_PIN_SHELF_1)
+    board.set_pin_mode_servo(SERVO_PIN_SHELF_2)
+    board.set_pin_mode_servo(SERVO_PIN_SHELF_1)
 
     # Strategy
-    close_both_arms(True)
+    # close_both_arms(True)
     retract_shelf(3, True)
-    stepper_goto(-3100, True)
-    extend_shelf(3, True)
-    open_both_arms(True)
-
-    stepper_goto(-2000, True)
-
-    retract_shelf(3, True)
+    retract_shelf(2, True)
+    retract_shelf(1, True)
     time.sleep(1)
-    stepper_goto(0, True)
-
+    extend_shelf(3, True)
+    extend_shelf(2, True)
+    extend_shelf(1, True)
+    time.sleep(1)
+    retract_shelf(3, True)
+    retract_shelf(2, True)
+    retract_shelf(1, True)
     # End
-    board.servo_detach(SERVO_PIN_LEFT)
-    board.servo_detach(SERVO_PIN_RIGHT)
+
+    board.servo_detach(SERVO_PIN_SHELF_3)
+    board.servo_detach(SERVO_PIN_SHELF_2)
+    board.servo_detach(SERVO_PIN_SHELF_1)
     board.shutdown()
     sys.exit(0)
 except KeyboardInterrupt:
