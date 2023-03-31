@@ -7,25 +7,10 @@ class DemoStrategy(Strategy):
     def __init__(self, port_ctrl: PortsController, debug=False):
         super().__init__(port_ctrl, debug)
 
-    def move(self):
-        time.sleep(5)
-        super().send_i2c_motor_control(MotorCommands.TOURNERAVANCER, 100, 0, 0)
-        # time.sleep(1)
-        super().send_i2c_motor_control(MotorCommands.TOURNERAVANCER, -100, 0, 0)
-        # time.sleep(1)
-        super().send_i2c_motor_control(MotorCommands.TOURNERAVANCER, 0, 0, 0)
-
-    def the_callback(self, data):
-        """
-        :param data:
-        :return:
-        """
-        print("Incoming i2c payload", data)
-
     def start(self):
-        print("Starting match")
+        print("Starting match !")
+        super().setup_pins()
 
-        super().main_board().get_board().set_pin_mode_i2c()
         for i in range(4):
             # read 6 bytes from the data register
             try:
@@ -41,7 +26,6 @@ class DemoStrategy(Strategy):
         #     print(a)
         #     super().main_board().get_board().i2c_read(42, 50, 8, self.the_callback)
         #     time.sleep(.1)
-
 
         # super().send_i2c_motor_control(MotorCommands.TOURNERAVANCER, 100, 0, 0)
 
